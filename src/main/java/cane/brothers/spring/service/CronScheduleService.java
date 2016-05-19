@@ -19,7 +19,6 @@ public class CronScheduleService implements ScheduleService {
 	@Autowired
 	private ScheduledTask scheduledTask;
 	
-	@Override
 	public boolean scheduleTask(CronCreateForm form) {
 		boolean result = true;
 		

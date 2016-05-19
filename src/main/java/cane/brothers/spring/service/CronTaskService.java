@@ -20,7 +20,6 @@ public class CronTaskService implements TaskService {
 	@Autowired
 	private ScheduledTask scheduledTask;
 	
-	@Override
 	public boolean createTask(CronCreateForm form) {
 		boolean result = true;
 		

@@ -1,8 +1,13 @@
 # eclipse
+.settings/
 .project
 .classpath
-.settings/
 
 # maven
 target/
 .mvn/
+mvnw.cmd
+mvnw
+
+# spring
+.springBeans

@@ -21,7 +21,6 @@ public class AppConfig implements SchedulingConfigurer {
 	}
 
 	// register task scheduler
-	@Override
 	public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
 		taskRegistrar.setScheduler(taskScheduler());
 	}
