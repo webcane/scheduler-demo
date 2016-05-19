@@ -7,6 +7,7 @@ import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
+import cane.brothers.spring.model.TaskEntity;
 import cane.brothers.spring.schedule.ScheduledTask;
 
 @Configuration
@@ -16,7 +17,7 @@ public class AppConfig implements SchedulingConfigurer {
 	// define task
 	@Bean
 	public ScheduledTask task() {
-		return new ScheduledTask();
+		return new ScheduledTask(new TaskEntity());
 	}
 
 	// register task scheduler

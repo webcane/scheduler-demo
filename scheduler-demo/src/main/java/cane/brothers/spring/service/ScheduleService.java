@@ -2,7 +2,7 @@ package cane.brothers.spring.service;
 
 import cane.brothers.spring.web.CronCreateForm;
 
-public interface TaskService {
+public interface ScheduleService {
 
-	boolean createTask(CronCreateForm form);
+	boolean scheduleTask(CronCreateForm form);
 }

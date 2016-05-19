@@ -1,7 +1,6 @@
 package cane.brothers.spring.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,19 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import cane.brothers.spring.schedule.ScheduledTask;
+import cane.brothers.spring.service.ScheduleService;
 
 @Controller
 @RequestMapping(value = "/cron")
 public class CronController {
 
 	@Autowired
-	private TaskScheduler taskScheduler;
+	private ScheduleService scheduleService;
 	
-	@Autowired
-	private ScheduledTask task;
-	
-
 	/**
 	 * provide CronCreateForm model object to empty form 
 	 * 
@@ -42,7 +37,7 @@ public class CronController {
     public String handleCronForm(@ModelAttribute("form") CronCreateForm form) {
         
         // add cron task into schedule
-        taskScheduler.schedule(task.withName(form.getName()), new CronTrigger(form.getCron()));
+    	scheduleService.scheduleTask(form);
         
         // ok, redirect
         return "redirect:/tasks";
